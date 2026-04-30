@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EUNXIEL — Luxury Cupcakes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════
+       LOADING SCREEN
+  ═══════════════════════════════════════ -->
+  <div id="loader">
+    <div class="loader-logo">EUNXIEL</div>
+    <div class="loader-line"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       CART OVERLAY & DRAWER
+  ═══════════════════════════════════════ -->
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <div class="cart-title">Your Selection</div>
+      <button class="cart-close" onclick="toggleCart()">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty" id="cartEmpty">Your cart is empty</div>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none">
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cartTotal">Rp 0</span>
+      </div>
+      <button class="checkout-btn">Proceed to Checkout</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════ -->
+  <nav id="navbar">
+    <a href="#" class="nav-logo">EUNXIEL</a>
+    <ul class="nav-links">
+      <li><a href="#products">Collection</a></li>
+      <li><a href="#about">Our Story</a></li>
+      <li><a href="#featured">Signature</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="cart-btn" onclick="toggleCart()">
+        <svg class="cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 01-8 0"/>
+        </svg>
+        <span id="cartLabel">Cart</span>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 1 — HERO
+  ═══════════════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-pattern"></div>
+    <div class="hero-ornament"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Est. 2018 — Jakarta, Indonesia</div>
+      <h1 class="hero-title">Luxury <em>Cupcakes</em><br>Experience</h1>
+      <p class="hero-subtitle">Handcrafted with love, elevated to art</p>
+      <div class="hero-divider"></div>
+      <a href="#products" class="hero-cta">Discover the Collection</a>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 2 — PRODUCTS (9 Cupcakes)
+  ═══════════════════════════════════════ -->
+  <section id="products">
+    <div class="section-eyebrow">The Collection</div>
+    <h2 class="section-title">Our Signature Cupcakes</h2>
+    <div class="gold-line"></div>
+    <p class="section-subtitle">Each piece is a masterwork — baked fresh daily with imported ingredients</p>
+    <!-- Product cards are rendered dynamically via JavaScript (renderProducts) -->
+    <div class="product-grid" id="productGrid"></div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 3 — ABOUT
+  ═══════════════════════════════════════ -->
+  <section id="about">
+    <div class="about-inner">
+      <div class="about-canvas reveal">
+        <img src="images/cupcake11.jpeg" alt="Golden Velvet Supreme">
+      </div>
+      <div class="about-text">
+        <div class="section-eyebrow">Our Philosophy</div>
+        <h2 class="section-title reveal">Where Pastry<br>Becomes Poetry</h2>
+        <div class="gold-line"></div>
+        <p class="about-body reveal reveal-delay-1">
+          At Eunxiel, we believe that the finest moments in life deserve the finest indulgences.
+          Every cupcake is a testament to our unwavering commitment to excellence — from the
+          Belgian chocolate we import, to the single-origin vanilla we source from Madagascar.
+        </p>
+        <p class="about-body reveal reveal-delay-2">
+          Our master pâtissiers bring together decades of expertise, transforming premium
+          ingredients into edible works of art. No shortcuts. No compromises. Only perfection.
+        </p>
+        <div class="about-stats reveal reveal-delay-3">
+          <div>
+            <span class="stat-num">6+</span>
+            <span class="stat-label">Years of craft</span>
+          </div>
+          <div>
+            <span class="stat-num">40k+</span>
+            <span class="stat-label">Happy clients</span>
+          </div>
+          <div>
+            <span class="stat-num">100%</span>
+            <span class="stat-label">Handcrafted</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 4 — FEATURED / HIGHLIGHT
+  ═══════════════════════════════════════ -->
+  <section id="featured">
+    <div class="featured-inner">
+      <div class="section-eyebrow">Signature Pieces</div>
+      <h2 class="section-title reveal">Customer Choice</h2>
+      <div class="gold-line"></div>
+      <div class="featured-grid reveal">
+        <!-- Main Featured Card -->
+        <div class="featured-card featured-main">
+          <img src="images/cupcake1.jpeg" alt="Golden Velvet Supreme">
+          <span class="feat-badge">Bestseller</span>
+          <div class="feat-info">
+            <div class="feat-name">Golden Velvet Supreme</div>
+            <div class="feat-price">Rp 85.000</div>
+          </div>
+        </div>
+        
+        <!-- Secondary Featured Cards -->
+        <div class="featured-card featured-secondary">
+          <div class="feat-side">
+            <img src="images/cupcake4.jpeg" alt="Ruby Strawberry Royale" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:8px;">
+            <div class="feat-side-name">Ruby Strawberry Royale</div>
+            <div class="feat-side-price">Rp 78.000</div>
+          </div>
+          <div class="feat-side">
+            <img src="images/cupcake2.jpeg" alt="Ruby Strawberry Royale" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:8px;">
+            <div class="feat-side-name">Sakura Blossom Dream</div>
+            <div class="feat-side-price">Rp 82.000</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 5 — TESTIMONIALS
+  ═══════════════════════════════════════ -->
+  <section id="testimonials">
+    <div class="section-eyebrow">Client Stories</div>
+    <h2 class="section-title reveal">Words of Delight</h2>
+    <div class="gold-line"></div>
+    <div class="testimonial-track">
+      <div class="testimonial-slide active">
+        <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+        <p class="testimonial-quote">"Eunxiel  cupcakes have become a staple at every milestone event we host. The Golden Velvet Supreme is, without question, the most exquisite thing I have ever tasted. A true luxury experience."</p>
+        <div class="testimonial-author">— Siti Rahayu, Jakarta</div>
+      </div>
+      <div class="testimonial-slide">
+        <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+        <p class="testimonial-quote">"I ordered the Sakura Blossom collection for my daughter's wedding — the guests couldn't stop raving. Velour doesn't just bake cupcakes, they craft memories."</p>
+        <div class="testimonial-author">— Dewi Kusuma, Surabaya</div>
+      </div>
+      <div class="testimonial-slide">
+        <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+        <p class="testimonial-quote">"The Noir Dark Truffle destroyed every notion I had about what a cupcake could be. Rich, layered, impossibly balanced. Worth every rupiah and more."</p>
+        <div class="testimonial-author">— Ahmad Fauzi, Bandung</div>
+      </div>
+      <div class="testimonial-slide">
+        <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+        <p class="testimonial-quote">"I've ordered from patisseries across Europe and Southeast Asia. Velour stands with the very best. Their attention to detail, from packaging to flavor, is genuinely world-class."</p>
+        <div class="testimonial-author">— Ayu Permatasari, Bali</div>
+      </div>
+      <!-- Dot navigation is injected by JavaScript -->
+      <div class="testimonial-nav" id="tNav"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer>
+    <div class="footer-top">
+      <!-- Brand -->
+      <div>
+        <div class="footer-brand-name">EUNXIEL</div>
+        <p class="footer-brand-desc">Artisanal luxury cupcakes, handcrafted daily in the heart of Jakarta.</p>
+        <div class="social-links" style="margin-top:1.5rem">
+          <a href="#" class="social-link">in</a>
+          <a href="#" class="social-link">ig</a>
+          <a href="#" class="social-link">tw</a>
+          <a href="#" class="social-link">fb</a>
+        </div>
+      </div>
+      <!-- Navigation links -->
+      <div>
+        <div class="footer-col-title">Navigation</div>
+        <ul class="footer-links">
+          <li><a href="#products">Collection</a></li>
+          <li><a href="#about">Our Story</a></li>
+          <li><a href="#featured">Signature</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#">Gift Sets</a></li>
+        </ul>
+      </div>
+      <!-- Contact info -->
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="#">elgamargaretah29@gmail,com</a></li>
+          <li><a href="#">+62 851 1731 4925</a></li>
+          <li><a href="#">Jl. Sudirman No. 88<br>Jakarta Selatan</a></li>
+          <li style="margin-top:1rem"><a href="#">Mon–Sat: 09.00–20.00</a></li>
+        </ul>
+      </div>
+      <!-- Newsletter -->
+      <div>
+        <div class="footer-col-title">Newsletter</div>
+        <p style="font-size:0.78rem;margin-bottom:1rem;line-height:1.6">Receive exclusive offers and be the first to discover new creations.</p>
+        <div class="newsletter-form">
+          <input class="newsletter-input" type="email" placeholder="Your email address">
+          <button class="newsletter-btn">Subscribe</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Eunxiel Luxury Cupcakes. All rights reserved.</span>
+      <span>Privacy Policy · Terms of Service</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
